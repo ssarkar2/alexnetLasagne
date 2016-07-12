@@ -25,7 +25,7 @@ class alexNet():
         self.numGroups = [1,2,1,2,2]
         self.numFeatureMaps = [96,256,384,384,256]
         self.convKernelSize = [11,5,3,3,3]
-        self.convStride = [8,1,1,1,1]  #note its 8 instead of 4
+        self.convStride = [4,1,1,1,1]
         self.poolKernelSize = [3,3,-1,-1,3]
         self.poolStride = [2,2,-1,-1,2]
         self.useLRN = [True,True,False,False,False]
