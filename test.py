@@ -5,6 +5,14 @@ from alexNet import alexNet
 import numpy as np
 from lasagne.regularization import regularize_layer_params_weighted, l2
 
+
+def getClassifierParam(fileName, bias):
+    if os.path.exists(fileName):
+        param = np.cast['float32'](np.load(fileName))
+        return lasagne.utils.create_param(param, param.shape, name=fileName.split('/')[-1].split('.')[0])
+    else:
+        return (lasagne.init.GlorotUniform(), lasagne.init.Constant(0.))[bias]
+
 def initNetwork(X, Y, config):
     alexNetModel = alexNet2(config, X)
     #network = lasagne.layers.FlattenLayer(alexNetModel.outLayer)
