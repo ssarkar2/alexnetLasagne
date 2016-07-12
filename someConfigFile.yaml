@@ -1,0 +1,34 @@
+# If want to input None, use !!null
+
+
+numLayers: 5
+imgCol: 500
+imgRow: 500
+batch_size: 128
+initWeights: True
+weightsDir: '/some/dir/'   #You can use pretrained weights from here : https://github.com/uoguelph-mlrg/theano_alexnet/tree/master/pretrained/alexnet
+weightFileTag: '_65'
+mean_file: /loc/of/meanfile.npy
+prob_drop: 0.6
+
+
+#training data
+filename: /scratch0/sem4/domainAdaptation/code/bitbucketcode/tempdata/trainBaseline/database/BigSplit_dslr.txt
+imgRoot: /scratch0/sem4/domainAdaptation/tempData/augmentedResized/office/domain_adaptation_images/
+
+#training params
+numEpochs: 10
+initLR: 0.00007
+gamma: 0.8
+stepsize: 1000
+momentum: 0.9
+lrMultipliers: 0.1,0.2,0.1,0.2,0.1,0.2,1,2,1,2,1,2,1,2,1,2,1,2
+regularize: 0.1,0.1,0.1,0.1,0.1,0.1
+
+
+# conv library
+lib_conv: cudnn  # or cudaconvnet
+
+snapshot: 100  # frequency of saving weights
+print_freq: 20  # frequency of printing training error rate
+snapshot_prefix: /scratch0/sem4/domainAdaptation/code/bitbucketcode/tempdata/trainBaseline/dslr/try2/
